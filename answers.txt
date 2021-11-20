@@ -1,0 +1,216 @@
+Algo 1: 
+  Mean: 
+    const data = [4, 3, 1, 2, 2, 7, 9, 14, 2, 27, 400, 9, 1, 8]
+    function findMean(data) {
+        const totalSum = data.reduce((a, b) => a + b, 0)
+        const numsCnt = data.length
+        const average = totalSum / numsCnt
+        return average
+    }
+    console.log(findMean(data))
+  
+  Median:
+    const array = [4, 3, 1, 2, 2, 7, 9, 14, 2, 27, 400, 9, 1, 8]
+    function findMedian(array) {
+      array.sort(function(a, b) {
+          return a - b
+      })
+      const median = array.length/ 2
+      console.log(array[median])
+    }
+    findMedian(array)
+  Mode:
+    const array = [4, 3, 1, 2, 2, 7, 9, 14, 2, 27, 400, 9, 1, 8]
+    function arrMode(array) {
+      let arrHash = {};
+      let bigFreq = 0;
+      let bigFreqNum = 0;
+      for (const num of array) {
+        if (num in arrHash) {
+          arrHash[num] += 1
+        } else {
+          arrHash[num] = 1
+        }
+        if (arrHash[num] > bigFreq) {
+          bigFreq = arrHash[num];
+          bigFreqNum = num;
+        }
+      }
+      console.log(arrHash);
+      return bigFreqNum
+    }
+    console.log(arrMode(array))
+    
+Algo 2:
+  // Creating the bblSort function
+  function bubbleSort(arr){
+     
+    for(var i = 0; i < arr.length; i++){
+        
+      // Last i elements are already in place  
+      for(var j = 0; j < ( arr.length - i -1 ); j++){
+          
+        // Checking if the item at present iteration 
+        // is greater than the next iteration
+        if(arr[j] > arr[j+1]){
+            
+          // If the condition is true then swap them
+          var temp = arr[j]
+          arr[j] = arr[j + 1]
+          arr[j+1] = temp
+        }
+      }
+    }
+    // Print the sorted array
+    console.log(arr);
+   }
+     
+     
+   // This is our unsorted array
+   const arr = [234, 43, 55, 63,  5, 6, 235, 547];
+     
+     
+   // Now pass this array to the bblSort() function
+   bubbleSort(arr);
+   
+Algo 3:
+  const array = [1,3,10,11,14]
+  const goal = 13
+  const twoSum = (array, goal) => {
+      let indexes = [];
+      for(let i = 0; i < array.length; i++){
+         for(let j = i + 1; j < array.length; j++){
+            if (array[i] + array[j] === goal) {
+          indexes.push(i);
+          indexes.push(j);
+            }
+         }
+      }
+      return indexes;
+  }
+  console.log(twoSum(array, goal))
+  
+Algo 4:
+  const reverse = function(x) {
+      return (
+          parseFloat(
+              x.toString().split('').reverse().join('')
+          ) * Math.sign(x)
+      )
+  };
+  console.log(reverse(143))
+  
+Algo 5:
+  const message = 'ffrgrlll'
+  function compress(message){
+      let compressedString = ""
+      let messageArray = message.split("")
+      for (let i = 0; i < messageArray.length; i++){
+        let count = 1
+        let currentLetter = messageArray[i]
+        while (i < messageArray.length - 1 && messageArray[i] === messageArray[i + 1]){
+          count++
+          i++
+        }
+        if (count === 1){
+          compressedString += currentLetter
+        } else {
+          compressedString += currentLetter + count
+        }
+      }
+      return compressedString
+    }
+  console.log(compress(message))
+  
+Algo 6:
+  function recurse(n) {
+      if(n <= 2) {
+          return 1
+      } else {
+          let result = 1;
+          let count;
+          for (count = n; count > 1; count--){
+              result += count
+          }
+          return result
+      }
+  }
+  console.log(recurse(7))
+  
+Algo 7:
+  const items = [
+      { name: 'Bike', price: 100},
+      { name: 'TV', price: 200},
+      { name: 'Album', price: 10},
+      { name: 'Book', price: 5},
+      { name: 'Phone', price: 500},
+      { name: 'Computer', price: 1000},
+      { name: 'Keyboard', price: 25},
+  ]
+  const total = items.reduce((currentTotal, item) => {
+      return item.price + currentTotal
+  }, 0)
+  console.log(total)
+
+Algo 8:
+  const arr = [5, 12, 11, 13, 4, 6, 7]
+  const n = arr.length
+
+  const sort = (arr) => {
+      const n = arr.length
+
+      // Build heap (rearrange array)
+      for (let i = Math.floor(n/2) -1; i >= 0; i--)
+          {heapify(arr, n, i)}
+
+      // One by one extract an element from heap
+      for (let i = n - 1; i > 0; i--) {
+          // Move current root to end
+          let temp = arr[0]
+          arr[0] = arr[i]
+          arr[i] = temp
+
+          // call max heapify on the reduced heap
+          heapify(arr, i, 0)
+      }
+  }
+
+  // To heapify a subtree rooted with node i which is
+  // an index in arr[]. n is size of heap 
+  const heapify = (arr, n, i) => {
+      let largest = i; // Initialize largest as root 
+      let l = 2 * i + 1; // left = 2*i + 1
+      let r = 2 * i + 2; // right = 2*i + 2
+
+      // If left child is larger than the root
+      if (l < n && arr[l] > arr[largest])
+          largest = l;
+
+      // If right child is larger than largest so far 
+      if (r < n && arr[r] > arr[largest])
+          largest = r;
+
+      // If largest is not the root 
+      if (largest != i) {
+          let swap = arr[i];
+          arr[i] = arr[largest];
+          arr[largest] = swap;
+
+          // Recursively heapify the affected sub-tree
+          heapify(arr, n, largest);
+      }
+  }
+
+  // A utility function to print array of size n
+  const printArray = (arr) => {
+      const n = arr.length;
+      for (let i = 0; i < n; i++){
+          console.log(arr[i] + ' ')
+      }
+  }
+
+  sort(arr)
+  printArray(arr, n)
+
+Go to my codesandbox page if you want to find the answer for algo 9!!
+https://codesandbox.io/s/goofy-dan-l9c9e?file=/src/index.js

@@ -1,0 +1,25 @@
+Algo 1: Recursive Permutations: Write a function that accepts an array of integers as an argument.
+  --> The function should find all permutations that can be formed from the input and should return them as an array of arrays
+  --> Hint: I would probably go the recursive helper method route for this one
+  --> Hint: console.log(permutations([1, 2])) //[[1, 2], [2, 1]] or console.log(permutations([1, 2, 3])) //[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+
+Algo 2: Recursive Reverse: Write a function that accepts a string as an argument
+  --> The function should reverse the string recursively and return the new reversed string
+  --> Try to solve without using built in methods or functions (i.e. don't simply do stringVariableName.split('').reverse())
+  --> console.log(recursiveReverse('awesome')) //'emosewa'
+  
+Algo 3: Factorial Algorithm: Write a function that accepts a number as an input, called n.
+  --> The function should then calculate the factorial of n and then return it.
+  --> Solve using Recursion
+  
+Algo 4: Staircase Algorithm: Write a function that outputs to the terminal a set of stairs using hashtags (#)
+  --> A staircase of 4 |staircase(4);| should look like this:
+          #
+         ##
+        ###
+       ####
+       
+Algo 5: Min-Max-Sum Algorigthm: Write a function that given five positive integers, 
+  --> find the minimum and maximum values that can be calculated by 
+  --> summing exactly four of the five integers. Then print the respective minimum and maximum values
+  --> as a single line of two space-separated long integers.

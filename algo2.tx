@@ -1,0 +1,31 @@
+This time we're doing array methods. Each algorithm will use an array method to return something. You can Mozilla docs here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+const items = [
+    { name: 'Bike', price: 100},
+    { name: 'TV', price: 200},
+    { name: 'Album', price: 10},
+    { name: 'Book', price: 5},
+    { name: 'Phone', price: 500},
+    { name: 'Computer', price: 1000},
+    { name: 'Keyboard', price: 25},
+]
+
+Algo 1: Filter method, allows you to return a specific piece of an array
+
+Algo 2: Map method, allows you to take a key of an object and display only that
+
+Algo 3: Find method, will take a true/false and return only the first true
+
+Algo 4: forEach method, does not return anything, console log the method. 
+  Will do whats inside the function for each element inside array, best for looping
+
+Algo 5: Some method, returns true or false and checks a specific piece of the items, checks if anything in the array returns true for something.
+
+Algo 6: Every method, returns true or false and checks a specific piece of the items, checks if everything in array falls under the guidelines.
+
+Algo 7: Reduce method, does operation on array and returns a combination of all those operations.
+  Takes item and property for what we want to reduce into (currentTotal)
+  Takes second paramater which is the starting point (,0)
+  Loops over each item as well
+
+Algo 8: Includes method, takes a single argument, will check if an array has a value without a complex find.
